@@ -17,7 +17,7 @@ const RiddleCard: React.FC<RiddleCardProps> = ({ record }) => {
       </div>
       <p className="mt-2 text-gray-700">{record.comment}</p>
       <p className="mt-1 text-xs text-gray-400">
-        {record.particiapnts.join(", ")}
+        {record.participants.join(", ")}
       </p>
     </div>
   );

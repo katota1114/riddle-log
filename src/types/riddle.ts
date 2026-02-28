@@ -6,7 +6,7 @@ export interface RiddleRecord {
     location: string;
     organizer: string;
     status: ClearStatus;
-    particiapnts: string[];
+    participants: string[];
     comment: string;
     playDate: string;
 }
