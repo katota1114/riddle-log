@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { RiddleRecord } from "@/types/riddle";
+import RiddleForm from "@/components/RiddleForm";
 import RiddleCard from "@/components/RiddleCard";
 
 export default function Home() {
@@ -38,17 +39,7 @@ export default function Home() {
     },
   ]);
 
-  const addRecord = () => {
-    const newRecord: RiddleRecord = {
-      id: Date.now().toString(),
-      title: `Riddle ${records.length + 1}`,
-      location: `Location ${records.length + 1}`,
-      organizer: `Organizer ${records.length + 1}`,
-      status: "PARTICIPATED",
-      participants: [`Participant ${records.length + 4}`],
-      comment: `This is a comment for Riddle ${records.length + 1}.`,
-      playDate: new Date().toISOString().split("T")[0],
-    };
+  const addRecord = (newRecord: RiddleRecord) => {
     setRecords([...records, newRecord]);
   };
 
@@ -59,12 +50,7 @@ export default function Home() {
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-6">謎解き参加記録</h1>
-      <button
-        onClick={addRecord}
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
-      >
-        新しい記録を追加
-      </button>
+      <RiddleForm onAdd={addRecord} />
 
       <div className="grid gap-4">
         {records.map((record) => (
