@@ -3,6 +3,12 @@ interface RiddleCardProps {
   record: RiddleRecord;
 }
 
+const statusStyles = {
+  SUCCESS: "bg-green-100 text-green-800",
+  FAILURE: "bg-red-100 text-red-800",
+  PARTICIPATED: "bg-blue-100 text-blue-800",
+};
+
 const RiddleCard: React.FC<RiddleCardProps> = ({ record }) => {
   return (
     <div key={record.id} className="border p-4 rounded-lg shadow-sm">
@@ -10,7 +16,7 @@ const RiddleCard: React.FC<RiddleCardProps> = ({ record }) => {
       <p className="text-sm text-gray-600"> @ {record.location}</p>
       <div className="mt-2">
         <span
-          className={`px-2 py-1 rounded text-xs ${record.status === "SUCCESS" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+          className={`px-2 py-1 rounded text-xs ${statusStyles[record.status]}`}
         >
           {record.status}
         </span>
