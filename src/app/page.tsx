@@ -52,6 +52,10 @@ export default function Home() {
     setRecords([...records, newRecord]);
   };
 
+  const removeRecord = (id: string) => {
+    setRecords(records.filter((record) => record.id !== id));
+  };
+
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-6">謎解き参加記録</h1>
@@ -61,9 +65,10 @@ export default function Home() {
       >
         新しい記録を追加
       </button>
+
       <div className="grid gap-4">
         {records.map((record) => (
-          <RiddleCard key={record.id} record={record} />
+          <RiddleCard key={record.id} record={record} onRemove={removeRecord} />
         ))}
       </div>
     </main>

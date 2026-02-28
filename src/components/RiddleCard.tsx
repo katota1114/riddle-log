@@ -1,6 +1,7 @@
 import { RiddleRecord } from "@/types/riddle";
 interface RiddleCardProps {
   record: RiddleRecord;
+  onRemove: (id: string) => void;
 }
 
 const statusStyles = {
@@ -9,7 +10,7 @@ const statusStyles = {
   PARTICIPATED: "bg-blue-100 text-blue-800",
 };
 
-const RiddleCard: React.FC<RiddleCardProps> = ({ record }) => {
+const RiddleCard: React.FC<RiddleCardProps> = ({ record, onRemove }) => {
   return (
     <div key={record.id} className="border p-4 rounded-lg shadow-sm">
       <h2 className="text-xl font-bold">{record.title}</h2>
@@ -27,6 +28,12 @@ const RiddleCard: React.FC<RiddleCardProps> = ({ record }) => {
       <p className="mt-1 text-xs text-gray-400">
         {record.participants.join(", ")}
       </p>
+      <button
+        onClick={() => onRemove(record.id)}
+        className="mt-2 text-sm text-red-500 hover:text-red-700"
+      >
+        削除
+      </button>
     </div>
   );
 };
