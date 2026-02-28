@@ -13,7 +13,9 @@ const RiddleCard: React.FC<RiddleCardProps> = ({ record }) => {
   return (
     <div key={record.id} className="border p-4 rounded-lg shadow-sm">
       <h2 className="text-xl font-bold">{record.title}</h2>
-      <p className="text-sm text-gray-600"> @ {record.location}</p>
+      <p className="text-sm text-gray-600">
+        {record.playDate} @ {record.location}
+      </p>
       <div className="mt-2">
         <span
           className={`px-2 py-1 rounded text-xs ${statusStyles[record.status]}`}
