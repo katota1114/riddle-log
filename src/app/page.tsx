@@ -1,8 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import { RiddleRecord } from "@/types/riddle";
 import RiddleCard from "@/components/RiddleCard";
 
 export default function Home() {
-  const records: RiddleRecord[] = [
+  const [records, setRecords] = useState<RiddleRecord[]>([
     {
       id: "1",
       title: "Riddle 1",
@@ -33,7 +36,7 @@ export default function Home() {
       comment: "This is a comment for Riddle 3.",
       playDate: "2024-06-03",
     },
-  ];
+  ]);
 
   return (
     <main className="p-8">
